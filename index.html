@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+    <title>Rock, Paper or Scissors</title>
+	<!-- Put your web fonts here -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="main-container">
+        <h1>Hi, I'm a trash talking computer.</h1>
+        <h2 id="trash-talk">Think you've got what it takes to beat me at Rock, Paper or Scissors? I doubt it, but take your best shot!</h2>
+        <div id="user-choice-holder">
+            <a id="paper-btn"><img src="images/paper.png" alt="paper icon">paper</a>
+            <a id="rock-btn"><img src="images/rock.png" alt="rock icon">rock</a>
+            <a id="scissors-btn"><img src="images/scissors.png" alt="scissors icon">scissors</a>
+        </div>
+        <div id="scoreboard" class="clearfix">
+            <h1>Scoreboard</h1>
+            <div>
+                <span id="user-score" class='score'>0</span>
+                <span class='score-label'>You</span>
+            </div>
+            <div>
+                <span id="computer-score" class='score'>0</span>
+                <span class='score-label'>Computer</span>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

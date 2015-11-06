@@ -1,0 +1,58 @@
+/* Global Overrides aka Dave's recommended hacks */
+
+* {
+    box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+
+/* Author's custom styles */
+
+#main-container{
+	max-width: 600px;
+	margin: 40px auto;	
+	text-align: center;
+}
+h2{
+	font-style: italic;
+	font-weight: 500;
+}
+#user-choice-holder a{
+	display: inline-block;
+	width: 100px;
+	cursor: pointer;
+}
+#user-choice-holder a:hover{
+	opacity: .6;
+}
+
+#scoreboard{
+	max-width: 400px;
+	margin: 20px auto;
+	border-radius: 10px;
+	padding: 20px;
+	background: rgba(31,29,51,.6);
+	border: 2px solid black;
+}
+#scoreboard h1{
+	border-bottom: 2px solid black;
+}
+#scoreboard div{
+	width: 50%;
+	float: left;
+}
+.score-label{
+	font-size: 14px;
+	display: block;
+}
+.score{
+	font-size: 56px;
+	display: block;	
+}
