@@ -43,12 +43,13 @@ function getComputerChoice(){
 	}
 }
 function determineWinner(userChoice, computerChoice){
-	if((userChoice == "rock" && computerChoice == "scissors") || (userChoice == "paper" && computerChoice == "rock") || (userChoice == "scissors" && computerChoice == "paper")){
-		return "user";
-	}else if((userChoice == "scissors" && computerChoice == "rock") || (userChoice == "rock" && computerChoice == "paper") || (userChoice == "paper" && computerChoice == "scissors")){
-		return "computer";
-	}else{
+	if ((userChoice == computerChoice)) {
 		return "tie";
+	}
+	else if((userChoice == "rock" && computerChoice == "scissors") || (userChoice == "paper" && computerChoice == "rock") || (userChoice == "scissors" && computerChoice == "paper")){
+		return "user";
+	}else {
+		return "computer";
 	}
 }
 function updateUserInterface(trashTalk){
@@ -56,17 +57,17 @@ function updateUserInterface(trashTalk){
 	document.getElementById('computer-score').innerHTML = computerWins;
 	document.getElementById('trash-talk').innerHTML = trashTalk;
 }
-function getTrashTalk(thisWinner, computerChoice, userChoice){
+function getTrashTalk(determineWinner, computerChoice, userChoice){
 	var message;
-	if(thisWinner == "tie"){
+	if(determineWinner == "tie"){
 		message = "We both picked " + userChoice + ".<br><br>Get out of my head, Charles!!!"
-	}else if(thisWinner == "user" && lastWinner == "computer"){
+	}else if(determineWinner == "user" && lastWinner == "computer"){
 		message = userChoice + " beats " + computerChoice + ". You win this time, I guess."
-	}else if(thisWinner == "user" && lastWinner == "user"){
+	}else if(determineWinner == "user" && lastWinner == "user"){
 		message = userChoice + " beats " + computerChoice + "... again";
-	}else if(thisWinner == "computer" && lastWinner == "user"){
+	}else if(determineWinner == "computer" && lastWinner == "user"){
 		message = computerChoice + " beats " + userChoice + ". Sucks to be you."
-	}else if(thisWinner == "computer" && lastWinner == "computer"){
+	}else if(determineWinner == "computer" && lastWinner == "computer"){
 		message = computerChoice + " beats " + userChoice + "!!! I'm on a roll, baby!!!"
 	}
 	return message;
