@@ -43,15 +43,6 @@ function getComputerChoice(){
 	}
 }
 function determineWinner(userChoice, computerChoice){
-	//This code just randomly picks a winner
-	// var rand = Math.random();
-	// if(rand <= .333){
-	// 	return "user";
-	// }else if(rand <= .666){
-	// 	return "computer";
-	// }else{
-	// 	return "tie";
-	// }
 	if((userChoice == "rock" && computerChoice == "scissors") || (userChoice == "paper" && computerChoice == "rock") || (userChoice == "scissors" && computerChoice == "paper")){
 		return "user";
 	}else if((userChoice == "scissors" && computerChoice == "rock") || (userChoice == "rock" && computerChoice == "paper") || (userChoice == "paper" && computerChoice == "scissors")){
