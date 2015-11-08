@@ -2,11 +2,13 @@
 var computerWins = 0;
 var userWins = 0;
 var lastWinner = "none";
+var thisWinner = "none";
 
 //Link functions to events
 document.getElementById('rock-btn').addEventListener("click", function() {
 	runGame("rock");
-});
+});//finds and element on the page with the 
+//ID of rock-btn and then adds an event listener for a click; on click, runs the rungame function w tha param of rock
 document.getElementById('paper-btn').addEventListener("click", function() {
 	runGame("paper");
 });
@@ -19,11 +21,12 @@ document.getElementById('scissors-btn').addEventListener("click", function() {
 function runGame(userChoice) {
 	var computerChoice = getComputerChoice();
 	var results = determineWinner(userChoice, computerChoice);
+	lastWinner = thisWinner;
 	if(results == "user"){
-		lastWinner = "user";
+		thisWinner = "user";
 		userWins += 1;
 	}else if(results == "computer"){
-		lastWinner = "computer";
+		thisWinner = "computer";
 		computerWins += 1;
 	}else{
 		//do nothing, it's tied
@@ -57,17 +60,18 @@ function updateUserInterface(trashTalk){
 	document.getElementById('computer-score').innerHTML = computerWins;
 	document.getElementById('trash-talk').innerHTML = trashTalk;
 }
-function getTrashTalk(determineWinner, computerChoice, userChoice){
+// results and lastWinner appear to be the same thing
+function getTrashTalk(thisWinner, computerChoice, userChoice){
 	var message;
-	if(determineWinner == "tie"){
+	if(thisWinner == "tie"){
 		message = "We both picked " + userChoice + ".<br><br>Get out of my head, Charles!!!"
-	}else if(determineWinner == "user" && lastWinner == "computer"){
+	}else if(thisWinner == "user" && (lastWinner == "computer" || lastWinner == "none")){
 		message = userChoice + " beats " + computerChoice + ". You win this time, I guess."
-	}else if(determineWinner == "user" && lastWinner == "user"){
+	}else if(thisWinner == "user" && lastWinner == "user"){
 		message = userChoice + " beats " + computerChoice + "... again";
-	}else if(determineWinner == "computer" && lastWinner == "user"){
+	}else if(thisWinner == "computer" && (lastWinner == "user" || lastWinner == "none")){
 		message = computerChoice + " beats " + userChoice + ". Sucks to be you."
-	}else if(determineWinner == "computer" && lastWinner == "computer"){
+	}else if(thisWinner == "computer" && lastWinner == "computer"){
 		message = computerChoice + " beats " + userChoice + "!!! I'm on a roll, baby!!!"
 	}
 	return message;
